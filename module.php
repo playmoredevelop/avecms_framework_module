@@ -2,14 +2,12 @@
 
 if(!defined('BASE_DIR')) exit;
 
-if (defined('ACP'))
-{
-	$modul =
-	[
+if (defined('ACP')) {
+	$modul = [
 		'ModuleName'			=> "Framework",
-		'ModuleSysName'			=> "framework",
-		'ModuleVersion'			=> "1.0",
-		'ModuleDescription'		=> "Портирует весь модульный функционал фреймворка в админку, штатным способом.",
+		'ModuleSysName'			=> "avecms_framework_module",
+		'ModuleVersion'			=> FW_VERSION,
+		'ModuleDescription'		=> "Управление и настройка фреймворка из админки. Генерация административных функций по моделям.",
 		'ModuleAutor'			=> "Playmore",
 		'ModuleCopyright'		=> "&copy; Playmore 2017",
 		'ModuleStatus'			=> 1,
@@ -33,11 +31,13 @@ array (
   'cp' => 'i3fdnsaca0p49l1p92hbqafsd6',
 ) */
 
-$action = snippets()->request->get('moduleaction', '1');
-($action === '1') AND $action = 'index';
+$action = snippets()->request->get('moduleaction', false);
 
-require 'admin.methods.php';
+if($action AND defined('ACP')){
+	
+	($action === '1') AND $action = 'index';
 
-$result = call_controller('admin.methods', $action);
+	require 'admin.methods.php';
 
-debug($result);
+	return call_controller('admin.methods', $action);
+}

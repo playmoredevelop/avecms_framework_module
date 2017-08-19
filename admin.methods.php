@@ -5,17 +5,25 @@ class AdminMethodsController extends Framework\Controllers\BaseController {
 	
 	public function indexAction() {
 		
-		debug(__METHOD__);
-		
 		return $this->render('index.view');
 	}
 	
-	public function render($filename) {
+	/**
+	 * autocomplete
+	 * @global type $AVE_Template
+	 * @return \AVE_Template
+	 */
+	protected function ave_template() {
+		global $AVE_Template;
+		return $AVE_Template;
+	}
+	
+	protected function render($filename) {
 		
 		$path = realpath(dirname(__FILE__)).'/views/';
 		
 		$filename = str_replace('.php', '', $filename).'.php';
 		
-		return snippets()->render->file($path.$filename);
+		$this->ave_template()->assign('content', snippets()->render->file($path.$filename));
 	}
 }
