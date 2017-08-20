@@ -20,7 +20,7 @@ class AdminMethodsController extends Framework\Controllers\BaseController {
 	
 	protected function render($filename) {
 		
-		$path = realpath(dirname(__FILE__)).'/views/';
+		$path = FW_MODULE_PATH.'/views/';
 		
 		$filename = str_replace('.php', '', $filename).'.php';
 		

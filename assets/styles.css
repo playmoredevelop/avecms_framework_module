@@ -1,0 +1,14 @@
+.dn {display:none}
+.ff-cuprum {
+	font-family: 'Cuprum', sans-serif;
+}
+.fw-header {
+	background-color: #373840;
+    color: #fff;
+    padding: 7px 12px;
+    border-radius: 2px 2px 0 0;
+    border-bottom: 3px solid #bbb;
+    font-family: 'Cuprum', sans-serif;
+    font-size: 10pt;
+}
+.fw-container {}

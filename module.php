@@ -2,6 +2,9 @@
 
 if(!defined('BASE_DIR')) exit;
 
+define('FW_MODULE_PATH', realpath(dirname(__FILE__)));
+define('FW_MODULE_ALIAS', 'avecms_framework_module');
+
 if (defined('ACP')) {
 	$modul = [
 		'ModuleName'			=> "Framework",
