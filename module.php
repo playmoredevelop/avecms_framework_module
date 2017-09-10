@@ -42,5 +42,25 @@ if($action AND defined('ACP')){
 
 	require 'admin.methods.php';
 
-	return call_controller('admin.methods', $action);
+	$data = call_controller('admin.methods', $action);
+	
+	$render = snippets()->render;
+		
+	if(is_array($data)){
+		foreach($data as $key => $value){
+			$render->{$key} = $value;
+		}
+	}
+
+	$filenames = [
+		'content' => $action.'Action.php',
+		'layout' => '_layout.view.php',
+	];
+
+	$path = FW_MODULE_PATH.'/views/';
+
+	$render->content = $render->file($path.$filenames['content']);
+	$render->action = $action;
+
+	Framework\CMS::getAveTemplate()->assign('content', $render->file($path.$filenames['layout']));
 }
