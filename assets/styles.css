@@ -1,4 +1,12 @@
 .dn {display:none}
+.content {
+	padding-bottom: 50px;
+}
+.aa {
+	transition-property: border,background,opacity;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1)
+}
 .ff-cuprum {
 	font-family: 'Cuprum', sans-serif;
 }
@@ -11,4 +19,69 @@
     font-family: 'Cuprum', sans-serif;
     font-size: 10pt;
 }
+.fw-header .author {
+	font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    float: right;
+}
 .fw-container {}
+.fw-container .tabs {
+	border-bottom: 3px solid #222;
+}
+.clear-after:after {
+	content: '';
+	clear:both;
+	display:block;
+}
+.fw-content {
+    box-sizing: border-box;
+	min-height: 550px;
+	background-color: #fafaff;
+	background-image: url('bg.png');
+	border-right: 1px dashed #999;
+	border-bottom: 1px dashed #999;
+}
+.fw-content .column {
+	float: left;
+    width: 50%;
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.fw-content .sidebar {
+	background-color: #222;
+    width: 15%;
+    padding: 0px 3px 0px 2px;
+    color: #fff;
+	min-height: 550px;
+	margin-bottom: -1px;
+}
+.fw-content .content {
+	padding: 2px;
+	width:85%;
+}
+.fw-content .sidebar .sidebar-section {
+	display: block;
+    padding: 6px 10px 6px 28px;
+    background-color: #333;
+    margin-bottom: 2px;
+    border-radius: 3px;
+    color: #ddd;
+    position: relative;
+    font-size: 13px;
+}
+.fw-content .sidebar .sidebar-section > i {
+	position: absolute;
+    left: 9px;
+    top: 9px;
+	color: rgba(255,255,255,0.3);
+	font-size: 12px;
+}
+.fw-content .sidebar .sidebar-section:hover {
+	background-color: #222;
+	color: #fff;
+}
+.fw-content .sidebar .sidebar-section:hover > i {
+	color: rgba(255,255,255,0.7);
+}

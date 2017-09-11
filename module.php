@@ -61,6 +61,13 @@ if($action AND defined('ACP')){
 
 	$render->content = $render->file($path.$filenames['content']);
 	$render->action = $action;
+	
+	foreach([
+		'author' => '&copy; Playmore 2018',
+		'header' => 'Фреймворк',
+	] as $key => $value){
+		$render->{$key} = $value;
+	}
 
 	Framework\CMS::getAveTemplate()->assign('content', $render->file($path.$filenames['layout']));
 }
